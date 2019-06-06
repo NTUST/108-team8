@@ -12,157 +12,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<style> 
-	/* The Modal (background) */ 
-	.modal { 
-	    display: none; /* Hidden by default */ 
-	    position: fixed; /* Stay in place */ 
-	    z-index: 100; /* Sit on top */ 
-	    padding-top: 150px; /* Location of the box */ 
-	    left: 0; 
-	    top: 0; 
-	    width: 100%; /* Full width */ 
-	    height: 100%; /* Full height */ 
-	    overflow: auto; /* Enable scroll if needed */ 
-	    background-color: rgb(0,0,0); /* Fallback color */ 
-	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
-	} 
-	 
-	/* Modal Content */ 
-	.modal-content { 
-    background-color: #fefefe; 
-	    margin: auto; 
-    padding: 20px; 
-	    border: 1px solid #888;
-	    width: 30%; 
-	    height: 50%;
-	} 
-	 
-.modal_Logout { 
-	    display: none; /* Hidden by default */ 
-	    position: fixed; /* Stay in place */ 
-	    z-index: 100; /* Sit on top */ 
-	    padding-top: 150px; /* Location of the box */ 
-	    left: 0; 
-	    top: 0; 
-	    width: 100%; /* Full width */ 
-	    height: 100%; /* Full height */ 
-	    overflow: auto; /* Enable scroll if needed */ 
-	    background-color: rgb(0,0,0); /* Fallback color */ 
-	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
-	} 
-	 
-	/* Modal Content */ 
-	.modal_Logout-content { 
-    background-color: #fefefe; 
-	    margin: auto; 
-    padding: 20px; 
-	    border: 1px solid #888;
-	    width: 30%; 
-	    height: 80%;
-	} 
-
-	/* The Close Button */ 
-	.close { 
-	    color: #aaaaaa; 
-	    float: right;
-	    font-size: 28px; 
-   font-weight: bold; 
-	} 
-	 
-	.close:hover, 
-	.close:focus { 
-	    color: #000; 
-	    text-decoration: none; 
-	    cursor: pointer; 
-	} 
-	.myButton {
-	-moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
-	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
-	box-shadow: 0px 1px 0px 0px #f0f7fa;
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
-	background:-moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
-	background:-webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
-	background:-o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
-	background:-ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
-	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
-	background-color:#33bdef;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	border-radius:6px;
-	border:1px solid #057fd0;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	padding-top: 0.5px;
-	text-decoration:none;
-	text-shadow:0px -1px 0px #5b6178;
-}
-.myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
-	background:-moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
-	background:-webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
-	background:-o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
-	background:-ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
-	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
-	background-color:#019ad2;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
-
-.registeredbutton {
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    padding: 18px 60px;
-    border: 0px solid #941e1e;
-    border-radius: 14px;
-    background: #f51616;
-    background: -webkit-gradient(linear, left top, left bottom, from(#f51616), to(#992727));
-    background: -moz-linear-gradient(top, #f51616, #992727);
-    background: linear-gradient(to bottom, #f51616, #992727);
-    text-shadow: #661e1e -1px 1px 1px;
-    font: normal normal bold 20px times new roman;
-    color: #f5f5f5;
-    text-decoration: none;
-}
-.registeredbutton:hover,
-.registeredbutton:focus {
-    border: 0px solid #ed3030;
-    background: #ff1a1a;
-    background: -webkit-gradient(linear, left top, left bottom, from(#ff1a1a), to(#b62f2f));
-    background: -moz-linear-gradient(top, #ff1a1a, #b62f2f);
-    background: linear-gradient(to bottom, #ff1a1a, #b62f2f);
-    color: #f5f5f5;
-    text-decoration: none;
-}
-.registeredbutton:active {
-    background: #930d0d;
-    background: -webkit-gradient(linear, left top, left bottom, from(#930d0d), to(#982727));
-    background: -moz-linear-gradient(top, #930d0d, #982727);
-    background: linear-gradient(to bottom, #930d0d, #982727);
-}
-.registeredbutton:before{
-    content:  "\0000a0";
-    display: inline-block;
-    height: 24px;
-    width: 24px;
-    line-height: 24px;
-    margin: 0 4px -6px -4px;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEyElEQVRIia2Va2xTZRjHf+fSrbRbYTh3010YY0Ecg8UoIETJ5APRDAYqfFliMqIJIpcgiSFZREOMH4xRol8MJCgYYzSBqENuMcIYlxmGLhtzA9Z1967b2q7t2p6257x+OGdQjSEu8UmenJw37/n/n///fc77KMwx6isoWFvI6ifmkyuniI1rxOaK8dC4tC//uBi7Ioy+MyJw6UOt8/PNV7/bntlYaMf+vxBc2F34vZgZFiI8JER4WIioV4jRy6Lv2JbeT2pZ98/98pwZhAAtaGUAZnxgy6F8yweVr7/73q8nXnE0pm9X567BgEQIdAMQJqHJjHPJBvXl3frRYPiwb895mgGUucI3rBDbyueHl0naFGS6QE+BHgM9DqkotgUlUnFWZEPbjd4vh2aIKtW5ZD1XREW3n4BZ3sNj06LkNqevc1mkqwXJfY7MhY+APQdSUUjFITlDdmGpMz9w1fjmlvaL8tlm9jUdbDi94/lHG1+rkVZvLJ5eoM2IaE8Av+nB32NtKetddparKmo8rpFy/4azsAhsDkjFTDUCpITv8WNnh76QTm7lcMPeXU04S028RIDkpJuhwUHP9NhQq7t/9OLxNtF6pg+PpTAXKFuaS+UbT7HjxSXUFpcX4Fi3E3TdKkmgjXexcc/pFWo0QRK/G2Tn/YJtOaWUL1xURo1RVpMKNtS9OsTw6Mi98KS35fadiYtHr9B6aZBb+8/z82CIQ++4vPsc2iBIDvPQdci021icS4l628c9ERxAyi4GYTxwRRZmE8uCjNxCyvMeq0A2KlbUTjdu3e412tu7Lqx7P/TSp9c5tHE56wsM/0rQTAJDgqk2ZAVZvTpMT8Q/QXZewCSQhNlbae1nPoRpkAx2yS9nTIUqzTdCsmteD7K2El0zwf3doA2AAmq3l2GfPxTK1vwuMB6AK2ngzKoxEKN38d0YJzxjdlzTC1Q9syZ/E8Y06EkI3QPNDzKkkhhqzCA4FdQGFwe6q8jKBRRThSxM/PtKdPQ+D972KKMaoa86+OhoA7X1dTnH5+dlOtD6IDaBeQAQ9cFIiEkVSPijuImPVWF4weEEuwMkG8hSWoPqiDxw1KgY4yLYtFp5u3yRrVJRk5C4a9prs0xLwEA/oevDeFSA8QjdqGxCFUAE9AikAFk2U5FAAtUFOTmw6klKEEkQCVNlpln4bMZuQ4ePlnAcnwrQ4eV3AUgq5u2kYlajGlZaa4qVkpVYf4ZhgRuQ6oTREVInOjgCGCrA5X7uxDRwuCwAmykTAWSlrSkWUfodLCwCDZLXwOeGZg9fn/2TFqztdI0x7AsTKivAhQ3ENPjbTVtzykBZDuSnkchpCjQQ/RBphUAcrvho2f8TB60STYKETnAihKfMRrUYg4luGBFEFZAjHuxON2QVQeZSkAsAO4gU6JMQvQPTg5AQ0Ozh1IEf2WsYeGcFzs6D1PQUbr2Lat8E9KfwHjjHTv8M8bfWsmtNEbX5fhxqG6jzQLE6mRREkhi3/PQcu8mR5k6+BUJpBj4YOCMxusaD1P8RpevN0+wYmOImYOw+RWuWnWV1VdSuKuHpXCcFGSpyWCPUO0HPD51c7vVyDfDxsOu+rppnP67npCODCv59lMqmObisdDDHiSgDGXP54L/EX5ztNQw3UOoSAAAAAElFTkSuQmCC") no-repeat left center transparent;
-    background-size: 100% 100%;
-}
-
+	
 
 
 	</style> 
@@ -181,6 +31,7 @@
 					<li><a href="generic_2.html">五點聲明</a></li>
 					<li><a href="generic_1.html">韓總大戰議員</a></li>
 					<li><a href="elements.html">Elements</a></li>
+					<li><a href="shops.html">店家列表</a></li>
 				</ul>
 				<ul class="actions vertical">
 					<li><a id="homeLogin_Button" href="#" class="button fit">Login</a></li>
@@ -271,7 +122,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -281,7 +132,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -291,7 +142,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -301,7 +152,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -311,7 +162,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -321,7 +172,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 										</div>
 
@@ -335,7 +186,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -345,7 +196,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -355,7 +206,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -365,7 +216,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -375,7 +226,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -385,7 +236,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 										</div>
 
@@ -399,7 +250,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -409,7 +260,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -419,7 +270,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -429,7 +280,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -439,7 +290,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 											<!-- Video Thumbnail -->
 												<div class="video col">
@@ -449,7 +300,7 @@
 															<div class="icon fa-play"></div>
 														</div>
 													</div>
-													<a href="generic.html" class="link"><span>Click Me</span></a>
+													<a href="store.html" class="link"><span>Click Me</span></a>
 												</div>
 										</div>
 
