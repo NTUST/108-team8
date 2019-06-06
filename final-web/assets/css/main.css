@@ -3552,6 +3552,9 @@
 					#menu > ul.links > li:first-child > a:not(.button) {
 						border-top: 0 !important;
 					}
+					#menu > ul.action > {
+						display: none;
+					}
 
 		#menu .close {
 			text-decoration: none;
