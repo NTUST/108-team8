@@ -11,6 +11,161 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
+	<style> 
+	/* The Modal (background) */ 
+	.modal { 
+	    display: none; /* Hidden by default */ 
+	    position: fixed; /* Stay in place */ 
+	    z-index: 100; /* Sit on top */ 
+	    padding-top: 150px; /* Location of the box */ 
+	    left: 0; 
+	    top: 0; 
+	    width: 100%; /* Full width */ 
+	    height: 100%; /* Full height */ 
+	    overflow: auto; /* Enable scroll if needed */ 
+	    background-color: rgb(0,0,0); /* Fallback color */ 
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
+	} 
+	 
+	/* Modal Content */ 
+	.modal-content { 
+    background-color: #fefefe; 
+	    margin: auto; 
+    padding: 20px; 
+	    border: 1px solid #888;
+	    width: 30%; 
+	    height: 50%;
+	} 
+	 
+.modal_Logout { 
+	    display: none; /* Hidden by default */ 
+	    position: fixed; /* Stay in place */ 
+	    z-index: 100; /* Sit on top */ 
+	    padding-top: 150px; /* Location of the box */ 
+	    left: 0; 
+	    top: 0; 
+	    width: 100%; /* Full width */ 
+	    height: 100%; /* Full height */ 
+	    overflow: auto; /* Enable scroll if needed */ 
+	    background-color: rgb(0,0,0); /* Fallback color */ 
+	    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
+	} 
+	 
+	/* Modal Content */ 
+	.modal_Logout-content { 
+    background-color: #fefefe; 
+	    margin: auto; 
+    padding: 20px; 
+	    border: 1px solid #888;
+	    width: 30%; 
+	    height: 80%;
+	} 
+
+	/* The Close Button */ 
+	.close { 
+	    color: #aaaaaa; 
+	    float: right;
+	    font-size: 28px; 
+   font-weight: bold; 
+	} 
+	 
+	.close:hover, 
+	.close:focus { 
+	    color: #000; 
+	    text-decoration: none; 
+	    cursor: pointer; 
+	} 
+	.myButton {
+	-moz-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	-webkit-box-shadow: 0px 1px 0px 0px #f0f7fa;
+	box-shadow: 0px 1px 0px 0px #f0f7fa;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #33bdef), color-stop(1, #019ad2));
+	background:-moz-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-webkit-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-o-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:-ms-linear-gradient(top, #33bdef 5%, #019ad2 100%);
+	background:linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bdef', endColorstr='#019ad2',GradientType=0);
+	background-color:#33bdef;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #057fd0;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	padding-top: 0.5px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #5b6178;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #019ad2), color-stop(1, #33bdef));
+	background:-moz-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-webkit-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-o-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:-ms-linear-gradient(top, #019ad2 5%, #33bdef 100%);
+	background:linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#019ad2', endColorstr='#33bdef',GradientType=0);
+	background-color:#019ad2;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.registeredbutton {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 18px 60px;
+    border: 0px solid #941e1e;
+    border-radius: 14px;
+    background: #f51616;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f51616), to(#992727));
+    background: -moz-linear-gradient(top, #f51616, #992727);
+    background: linear-gradient(to bottom, #f51616, #992727);
+    text-shadow: #661e1e -1px 1px 1px;
+    font: normal normal bold 20px times new roman;
+    color: #f5f5f5;
+    text-decoration: none;
+}
+.registeredbutton:hover,
+.registeredbutton:focus {
+    border: 0px solid #ed3030;
+    background: #ff1a1a;
+    background: -webkit-gradient(linear, left top, left bottom, from(#ff1a1a), to(#b62f2f));
+    background: -moz-linear-gradient(top, #ff1a1a, #b62f2f);
+    background: linear-gradient(to bottom, #ff1a1a, #b62f2f);
+    color: #f5f5f5;
+    text-decoration: none;
+}
+.registeredbutton:active {
+    background: #930d0d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#930d0d), to(#982727));
+    background: -moz-linear-gradient(top, #930d0d, #982727);
+    background: linear-gradient(to bottom, #930d0d, #982727);
+}
+.registeredbutton:before{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEyElEQVRIia2Va2xTZRjHf+fSrbRbYTh3010YY0Ecg8UoIETJ5APRDAYqfFliMqIJIpcgiSFZREOMH4xRol8MJCgYYzSBqENuMcIYlxmGLhtzA9Z1967b2q7t2p6257x+OGdQjSEu8UmenJw37/n/n///fc77KMwx6isoWFvI6ifmkyuniI1rxOaK8dC4tC//uBi7Ioy+MyJw6UOt8/PNV7/bntlYaMf+vxBc2F34vZgZFiI8JER4WIioV4jRy6Lv2JbeT2pZ98/98pwZhAAtaGUAZnxgy6F8yweVr7/73q8nXnE0pm9X567BgEQIdAMQJqHJjHPJBvXl3frRYPiwb895mgGUucI3rBDbyueHl0naFGS6QE+BHgM9DqkotgUlUnFWZEPbjd4vh2aIKtW5ZD1XREW3n4BZ3sNj06LkNqevc1mkqwXJfY7MhY+APQdSUUjFITlDdmGpMz9w1fjmlvaL8tlm9jUdbDi94/lHG1+rkVZvLJ5eoM2IaE8Av+nB32NtKetddparKmo8rpFy/4azsAhsDkjFTDUCpITv8WNnh76QTm7lcMPeXU04S028RIDkpJuhwUHP9NhQq7t/9OLxNtF6pg+PpTAXKFuaS+UbT7HjxSXUFpcX4Fi3E3TdKkmgjXexcc/pFWo0QRK/G2Tn/YJtOaWUL1xURo1RVpMKNtS9OsTw6Mi98KS35fadiYtHr9B6aZBb+8/z82CIQ++4vPsc2iBIDvPQdci021icS4l628c9ERxAyi4GYTxwRRZmE8uCjNxCyvMeq0A2KlbUTjdu3e412tu7Lqx7P/TSp9c5tHE56wsM/0rQTAJDgqk2ZAVZvTpMT8Q/QXZewCSQhNlbae1nPoRpkAx2yS9nTIUqzTdCsmteD7K2El0zwf3doA2AAmq3l2GfPxTK1vwuMB6AK2ngzKoxEKN38d0YJzxjdlzTC1Q9syZ/E8Y06EkI3QPNDzKkkhhqzCA4FdQGFwe6q8jKBRRThSxM/PtKdPQ+D972KKMaoa86+OhoA7X1dTnH5+dlOtD6IDaBeQAQ9cFIiEkVSPijuImPVWF4weEEuwMkG8hSWoPqiDxw1KgY4yLYtFp5u3yRrVJRk5C4a9prs0xLwEA/oevDeFSA8QjdqGxCFUAE9AikAFk2U5FAAtUFOTmw6klKEEkQCVNlpln4bMZuQ4ePlnAcnwrQ4eV3AUgq5u2kYlajGlZaa4qVkpVYf4ZhgRuQ6oTREVInOjgCGCrA5X7uxDRwuCwAmykTAWSlrSkWUfodLCwCDZLXwOeGZg9fn/2TFqztdI0x7AsTKivAhQ3ENPjbTVtzykBZDuSnkchpCjQQ/RBphUAcrvho2f8TB60STYKETnAihKfMRrUYg4luGBFEFZAjHuxON2QVQeZSkAsAO4gU6JMQvQPTg5AQ0Ozh1IEf2WsYeGcFzs6D1PQUbr2Lat8E9KfwHjjHTv8M8bfWsmtNEbX5fhxqG6jzQLE6mRREkhi3/PQcu8mR5k6+BUJpBj4YOCMxusaD1P8RpevN0+wYmOImYOw+RWuWnWV1VdSuKuHpXCcFGSpyWCPUO0HPD51c7vVyDfDxsOu+rppnP67npCODCv59lMqmObisdDDHiSgDGXP54L/EX5ztNQw3UOoSAAAAAElFTkSuQmCC") no-repeat left center transparent;
+    background-size: 100% 100%;
+}
+
+
+
+	</style> 
 	<body>
 
 		<!-- Header -->
@@ -28,7 +183,7 @@
 					<li><a href="elements.html">Elements</a></li>
 				</ul>
 				<ul class="actions vertical">
-					<li><a href="#" class="button fit">Login</a></li>
+					<li><a id="homeLogin_Button" href="#" class="button fit">Login</a></li>
 				</ul>
 			</nav>
 			
@@ -398,6 +553,50 @@
 					&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Coverr</a>. Video: <a href="https://coverr.co">Coverr</a>.
 				</div>
 			</footer>
+<!-- The Modal   Login-->
+			<div id="loginModal" class="modal">
+	  <!-- Modal content --> 
+	  <div class="modal-content"> 
+       <div><button id="registered">註冊</button><span id="span1" class="close">&times;</span></div>
+	    
+	    <form method="post" style="padding-top: 20px;">
+	    	<div style="color: black; font-weight: bold;">帳號</div>
+	    	<div><input type="text"  style="color: black;"> </div>
+	    	<div style="color: black; font-weight: bold;">密碼</div>
+	    	<div><input type="password" style="margin-bottom: 5px;"> </div>
+
+         <div><button id="forget" class="myButton" style="float: left;">忘記密碼</button></dir>
+	        <div><button id ="login" class="myButton"style="float: right;" >登入</button> 
+	        	<button  id="cancel" class="myButton" style="float: right; margin-right: 10px;" >取消</button></div>
+	      
+	    </form> 
+	  </div> 
+	 
+	</div> 
+
+<div id="registeredModal" class="modal_Logout">
+	  <!-- Modal content --> 
+	  <div class="modal_Logout-content"> 
+       <div><span id="span2" class="close">&times;</span></div>
+	    
+	    <form method="post" style="padding-top: 20px;">
+	    	<div style="color: black; font-weight: bold;">姓名</div>
+	    	<div><input type="text"  style="color: black;"> </div>
+	    	<div style="color: black; font-weight: bold;">帳號</div>
+	    	<div><input type="text"  style="color: black;"> </div>
+	    	<div style="color: black; font-weight: bold;">密碼</div>
+	    	<div><input type="password" style="font-weight: bold;"> </div>
+	    	<div style="color: black; font-weight: bold;">再次確認密碼</div>
+	    	<div><input type="password"  style="color: black;"> </div>
+	    	<div style="color: black; font-weight: bold;">E-mail</div>
+	    	<div><input type="text"  style="color: black;"> </div>
+
+	    	<div align="center"><button id="registeredimmediantely" class="registeredbutton" style="margin-top: 10px;" href="elements.html" >立即註冊</button></div>
+	      
+	    </form> 
+	  </div> 
+	 
+	</div> 
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -405,6 +604,84 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script> 
+	// Get the modal 
+	var modal = document.getElementById('loginModal'); 
+	 
+	// Get the button that opens the modal 
+	var enterLogin = document.getElementById("homeLogin_Button"); 
+	 
+	// Get the <span> element that closes the modal 
+	var span = document.getElementsByClassName("close")[0]; 
+	var span1=document.getElementById("span1");
+	var span2=document.getElementById("span2");
+
+    // Get the Button that Login Member 
+	var login=document.getElementById("login");
+
+    //Get the Button that cancel Login
+    var cancel=document.getElementById("cancel");
+
+    //Get the Button that Forget
+    var forger=document.getElementById("forget");
+
+    //Get the Button that registered
+     var registered=document.getElementById("registered");
+
+    //Get the model
+    var modal_Logout=document.getElementById("registeredModal");
+
+    //Get the Button that registeredimmediantely
+    var registeredimmediantely=document.getElementById("registeredimmediantely");
+	 
+	// When the user clicks the button, open the modal  
+	enterLogin.onclick = function() { 
+	    modal.style.display = "block"; 
+	} 
+	 
+	// When the user clicks on <span> (x), close the modal 
+	span.onclick = function() {
+	    modal.style.display = "none";
+	    // modal_Logout.style.display="none";
+	} 
+    span1.onclick=function(){
+    	modal.style.display="none";
+    	modal_Logout.style.display="none";
+    }
+    span2.onclick=function(){
+    	modal_Logout.style.display="none";
+    	modal.style.display="none";
+    }
+    //When click the Login_Button,judge the Account and password then return information to DataBase
+	login.onclick=function(){
+	modal.style.backgroundColor="red";
+	}
+
+	//When click the cancel_button,close the modal
+    cancel.onclick=function(){
+       modal.style.display="none";
+    }
+
+    forget.onclick=function(){
+    	modal.style.backgroundColor="Green";
+    }
+
+    //When click the registered_Button,lead to another modal
+    registered.onclick=function(){
+    	homeLogin_Button.innerHTML="Logout";
+    	// modal.style.display="none";
+        modal_Logout.style.display="block";
+    }
+
+    //When click the registeredimmediately
+    registeredimmediantely.onclick=function(){
+    	modal_Logout.style.display("none");
+    }
+
+
+
+	</script> 
 
 	</body>
 </html>
