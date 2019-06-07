@@ -2574,6 +2574,7 @@
 
 			.image.fit img {
 				width: 100%;
+		
 			}
 
 		.image.main {
@@ -3497,6 +3498,7 @@
 			font-size: 1.25em;
 			font-weight: 300;
 			margin: 0;
+			text-align: center;
 		}
 
 		.video .link {
