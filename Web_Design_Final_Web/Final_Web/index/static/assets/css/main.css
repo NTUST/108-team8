@@ -2036,10 +2036,12 @@
 		-webkit-flex-wrap: wrap;
 		-ms-flex-wrap: wrap;
 		flex-wrap: wrap;
-		-moz-justify-content: space-between;
-		-webkit-justify-content: space-between;
-		-ms-justify-content: space-between;
-		justify-content: space-between;
+		-moz-justify-content: flex-start;
+		-webkit-justify-content:  flex-start;
+		-ms-justify-content: flex-start;
+		justify-content:  flex-start;
+		order:0;
+		flex-direction: row;
 	}
 
 		.flex.flex-2, .flex.flex-3 {
@@ -2047,6 +2049,11 @@
 			-webkit-align-items: stretch;
 			-ms-align-items: stretch;
 			align-items: stretch;
+		}
+		.flex.flex-3 .col2{
+			width:30%;
+			height:100%;
+			margin:10px;
 		}
 
 		.flex.flex-2 .col {

@@ -58,19 +58,24 @@
 							<p>Kaohsiung Shops</p>
 						</header>
 						
-						{% for s in store %}
-						<header>
-							
-							<!-- <div style="text-align:center"> -->
-							
-						<a href="{% url 'index:st' %}">{{ s.store_name }}</a>
+						<div class="flex flex-3">
+							{% for s in store %}
+							<span class="col2">
+								<a href="{% url 'index:st' %}">{{ s.store_name }}</a>
+								<p>context</p>
 							<div class="box alt">
 									<div class="row 50% uniform">
 										<div class="4u"><span class="image fit"><a href="{% url 'index:st' %}"><img src="{{ s.store_image }}" alt="" /></a></span></div>
 									</div>
 							</div>
+							</span>
 							{% endfor %}
-						</header>
+							
+						
+						
+							
+							<!-- <div style="text-align:center"> -->
+							
 								<ul>
 								<li>
 								{% if page_of_stores.has_previous %}
