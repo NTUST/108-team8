@@ -58,10 +58,11 @@
 							<p>Kaohsiung Shops</p>
 						</header>
 						
+						{% for s in store %}
 						<header>
 							
-							<div style="text-align:center">
-							{% for s in store %}
+							<!-- <div style="text-align:center"> -->
+							
 						<a href="{% url 'index:st' %}">{{ s.store_name }}</a>
 							<div class="box alt">
 									<div class="row 50% uniform">
@@ -69,6 +70,7 @@
 									</div>
 							</div>
 							{% endfor %}
+						</header>
 								<ul>
 								<li>
 								{% if page_of_stores.has_previous %}
@@ -78,8 +80,8 @@
                                 {% else %}
                                     <span aria-hidden="true">&laquo;</span>
                                 {% endif %}
-									</li>
-									 {% for page_num in page_range %}
+								</li>
+									{% for page_num in page_range %}
 									 {% if page_num == page_of_stores.number %}
                                     <li class="active"><span>{{ page_num }}</span></li>
                                 {% else %}
@@ -101,7 +103,7 @@
 								</ul>
 						</div>
 
-						</header>
+						
 						
 					<!-- 店家資訊Django-->
 					</div>
