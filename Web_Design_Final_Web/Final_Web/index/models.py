@@ -15,8 +15,10 @@ class Store(models.Model):
     store_address = models.TextField(default='')
     store_phone= models.CharField(max_length=13)
     store_opening_time = models.TextField(default='')
-    introdution_createtime=models.DateTimeField('date published')
-    account = models.ForeignKey(auth,on_delete=models.CASCADE)
+    introduction_createtime=models.DateTimeField('date published')
+    account = models.ForeignKey(Users,on_delete=models.CASCADE)
     def __str__(self):
         return self.store_name
+    class Meta:
+        ordering=['-introduction_createtime']
 

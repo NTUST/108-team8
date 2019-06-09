@@ -57,17 +57,52 @@
 							<h2>店家列表</h2>
 							<p>Kaohsiung Shops</p>
 						</header>
-						{% for s in stores %}
+						
 						<header>
-							<a href="{% url 'index:store' %}">{{ s.store_name }}</a>
+							
+							<div style="text-align:center">
+							{% for s in store %}
+						<a href="{% url 'index:st' %}">{{ s.store_name }}</a>
 							<div class="box alt">
 									<div class="row 50% uniform">
-										<div class="4u"><span class="image fit"><a href="{% url 'index:store' %}"><img src="{{ s.store_image }}" alt="" /></a></span></div>
+										<div class="4u"><span class="image fit"><a href="{% url 'index:st' %}"><img src="{{ s.store_image }}" alt="" /></a></span></div>
 									</div>
 							</div>
+							{% endfor %}
+								<ul>
+								<li>
+								{% if page_of_stores.has_previous %}
+                                  <a href="?page={{ page_of_blogs.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+									 </a>
+                                {% else %}
+                                    <span aria-hidden="true">&laquo;</span>
+                                {% endif %}
+									</li>
+									 {% for page_num in page_range %}
+									 {% if page_num == page_of_stores.number %}
+                                    <li class="active"><span>{{ page_num }}</span></li>
+                                {% else %}
+								 {% if page_num == '...' %}
+								 <li ><span>{{ page_num }}</span></li>
+                                <li><a href="?page={{ page_num }}">{{ page_num }}</a></li>
+								{% endif %}
+								{% endif %}
+                            {% endfor %}
+							 <li>
+                                {% if page_of_stores.has_next %}
+                                  <a href="?page={{ page_of_stores.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                  </a>
+                                {% else %}
+                                    <span aria-hidden="true">&raquo;</span>
+                                {% endif %}
+                            </li>
+								</ul>
+						</div>
 
 						</header>
-						{% endfor %}
+						
 					<!-- 店家資訊Django-->
 					</div>
 					<!--
@@ -178,11 +213,12 @@
 			</footer>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		{% load static %}
+			<script src={% static "assets/js/jquery.min.js" %}></script>
+			<script src={% static "assets/js/jquery.scrolly.min.js" %}></script>
+			<script src={% static "assets/js/skel.min.js" %}></script>
+			<script src={% static "assets/js/util.js" %}></script>
+			<script src={% static "assets/js/main.js" %}></script>
 
 	</body>
 </html>
