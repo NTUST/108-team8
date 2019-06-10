@@ -1,23 +1,46 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response, get_object_or_404, render 
 from .models import Store
 from login.models import Users
 from django.views import generic
 from django.core.paginator import Paginator
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_protect
 # Create your views here.
 
 #可以連上首頁而已
+CSRF_COOKIE_SECURE=True
+@csrf_exempt
+@csrf_protect
 def index(request):
-    return render(request,'final-web/index.html')
+    if request=='POST':
+        get_object_or_404(Users,all)
+        uName=request.POST['uName']
+        uAccount=request.POST['uAccount']
+        uPassword=request.POST['uPassword']
+        againPassword=request.POST['againPassword']
+        uemail=request.POST['uemail']
+        if uPassword==againPassword:
+            msg='註冊成功'
+            isSucce=True
+            user=Users.objects.create(name=uName,email=uemail,password=uPassword,user_account=uAccount)
+            user.save()
+            #RequestContext=[msg,isSucce]
+            return render_to_response('final-web/index.html',{'msg':msg,'isSucce':isSucce})
+        else:
+            msg='確認密碼不同'
+            isSucce=False
+            #RequestContext=[msg,isSucce]
+    return render_to_response('final-web/index.html',{'msg':msg,'isSucce':isSucce})
 #store 這邊要爬資料，讓每個店家有自己的頁面
 #目前未完成
-#class store(generic.DetailView):
-#    model = Store
-#    template_name='final-web/store.html'
-#    pk=Store.store_name
-#    def get_queryset(self):
-#        return Store.objects.all()
-def st(request):
-    render(request,'final-web/store.html')
+class StoreView(generic.DetailView):
+    model=Store
+    template_name ='final-web/store.html'
+    def get_queryset(self):
+        return Store.objects.all()
+def store(request,store_id):
+    store=get_object_or_404(Store,pk=store_id)
+    
 
 def shops(request):
     #爬每個店家的資料放到列表上
