@@ -22,7 +22,7 @@ def st(request):
 def shops(request):
     #爬每個店家的資料放到列表上
     stores=Store.objects.all()
-    paginator = Paginator(stores,6)
+    paginator = Paginator(stores,5)
     page_num=request.GET.get('page',1)
     page_of_stores= paginator.get_page(page_num)
     current_page_num=page_of_stores.number
