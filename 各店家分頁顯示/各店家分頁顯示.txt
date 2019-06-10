@@ -1,0 +1,3 @@
+views.py跟urls.py裡註解有寫
+shops.html跟store.html直接取代掉
+我把一些之前改好的網頁都丟到static裡，之後可以直接讀取這些網頁就好
