@@ -58,17 +58,22 @@
 							<p>Kaohsiung Shops</p>
 						</header>
 						
-						<header>
+						
 							
-							<div id="div_top_hypers">
+						<div class="flex flex-3">
 							{% for s in store %}
-						<a href="{% url 'index:st' %}">{{ s.store_name }}</a>
-							<div class="box alt">
+							<div class="col2">
+							<a href="{% url 'index:st' %}">{{ s.store_name }}</a>
+							<p>context</p>
+								<div class="box alt">
 									<div class="row 50% uniform">
 										<div class="4u"><span class="image fit"><a href="{% url 'index:st' %}"><img src="{{ s.store_image }}" alt="" /></a></span></div>
 									</div>
+								</div>
 							</div>
 							{% endfor %}
+						</div>
+
 							<div style="display:inline">
 								<ul >
 								<li >
@@ -101,9 +106,9 @@
                             </li>
 								</ul>
 								</div>
-						</div>
+						
 
-						</header>
+						
 						
 					<!-- 店家資訊Django-->
 					</div>
