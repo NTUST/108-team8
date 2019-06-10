@@ -2054,6 +2054,12 @@
 			width: 48%;
 		}
 
+		.flex.flex-3 .col2 {
+			width:30%;
+			height:100%;
+			margin:10px;
+		}
+
 		.flex.flex-3 .col {
 			width: 31%;
 		}
@@ -2472,7 +2478,7 @@
 
 		ul li {
 			padding-left: 0.5em;
-			display: inline;
+			
 		}
 
 		ul.alt {
