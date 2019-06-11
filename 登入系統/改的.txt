@@ -1,4 +1,0 @@
-view 的 index裡面幾乎都有改些
-index.html的body剛開始有加點JS
-還有註冊的form那邊
-幫每個input加上name

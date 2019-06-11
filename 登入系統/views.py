@@ -5,37 +5,45 @@ from django.views import generic
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.db import models
-#from django.views.decorators.csrf import csrf_exempt
-#from django.views.decorators.csrf import csrf_protect
-#
 from django.template import RequestContext
-# Create your views here.
-#可以連上首頁而已
-#CSRF_COOKIE_SECURE=True
-#@csrf_exempt
-#@csrf_protect
+
 def index(request):
     if request.method=='POST':
-        #get_object_or_404(Users,all)
-        uName=request.POST['uName']
-        uAccount=request.POST['uAccount']
-        uPassword=request.POST['uPassword']
-        againPassword=request.POST['againPassword']
-        uemail=request.POST['uemail']
-        
-        if Users.objects.filter(name=uName):
-            msg='相同的使用者名稱'
-            return render_to_response('final-web/index.html',locals())
-        elif uPassword==againPassword:
-            msg='註冊成功'
-            isSucce=True
-            user=Users(name=uName,email=uemail,password=uPassword,user_account=uAccount)
-            user.save()
-            return render_to_response('final-web/index.html',locals())
+        if 'loginAccount' in request.POST:
+            loginAccount=request.POST['loginAccount']
+            loginPassword=request.POST['loginPassword']
+
+            if Users.objects.filter(user_account=loginAccount):
+                user=Users.objects.get(user_account=loginAccount)
+                if(user.password==loginPassword):
+                    msg=loginAccount+'登入成功'
+                    return render_to_response('final-web/index.html',locals())
+                else:
+                    msg='密碼錯誤'
+                    return render_to_response('final-web/index.html',locals())
+            else:
+                msg='無此帳號'
+                return render_to_response('final-web/index.html',locals())
+
         else:
-            msg='確認密碼不同'
-            isSucce=False
-            return render_to_response('final-web/index.html',locals())
+            uName=request.POST['uName']
+            uAccount=request.POST['uAccount']
+            uPassword=request.POST['uPassword']
+            againPassword=request.POST['againPassword']
+            uemail=request.POST['uemail']      
+            if Users.objects.filter(user_account=uAccount):
+                msg='相同的帳號'
+                return render_to_response('final-web/index.html',locals())
+            elif uPassword==againPassword:
+                msg='註冊成功'
+                isSucce=True
+                user=Users(name=uName,email=uemail,password=uPassword,user_account=uAccount)
+                user.save()
+                return render_to_response('final-web/index.html',locals())
+            else:
+                msg='確認密碼不同'
+                isSucce=False
+                return render_to_response('final-web/index.html',locals())
     return render_to_response('final-web/index.html',locals())
             
 
