@@ -7,6 +7,9 @@ from django.contrib import messages
 from django.db import models
 from django.template import RequestContext
 
+
+
+
 def index(request):
     if request.method=='POST':
         if 'loginAccount' in request.POST:
@@ -17,6 +20,7 @@ def index(request):
                 user=Users.objects.get(user_account=loginAccount)
                 if(user.password==loginPassword):
                     msg=loginAccount+'登入成功'
+                    isLogin=True
                     return render_to_response('final-web/index.html',locals())
                 else:
                     msg='密碼錯誤'
