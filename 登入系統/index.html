@@ -180,8 +180,10 @@
 		{% endif %}
 		<!-- Header -->
 			<header id="header">
-				<h1><a href="{% url 'index:index' %}">韓流<span>來襲</span></a></h1>
+				<h1><a href="{% url 'index:index' %}">韓流<span>來襲 </span></a></h1>
+				{% if isLogin%} {% if loginAccount%} 歡迎{{loginAccount}} {% endif %} {% endif %}
 				<a href="#menu">Menu</a>
+				
 			</header>
 
 		<!-- Nav -->
@@ -194,7 +196,15 @@
 					<li><a href="#">Elements</a></li>
 				</ul>
 				<ul class="actions vertical">
-					<li><a id="homeLogin_Button" href="#" class="button fit">Login</a></li>
+					<li>
+						<a id="homeLogin_Button" href="#" class="button fit">
+						{% if isLogin%}  
+							{{logOut}} 
+						{% else %}
+							Login
+						{% endif %}
+						</a>
+					</li>
 				</ul>
 			</nav>
 			
@@ -573,14 +583,18 @@
        <div><button id="registered">註冊</button><span id="span1" class="close">&times;</span></div>
 	    
 	    <form method="post" style="padding-top: 20px;">{% csrf_token %}
-	    	<div style="color: black; font-weight: bold;">帳號</div>
-	    	<div><input type="text"  style="color: black;"> </div>
-	    	<div style="color: black; font-weight: bold;">密碼</div>
-	    	<div><input type="password" style="margin-bottom: 5px;"> </div>
+	    	<div style="color: black; font-weight: bold;" >帳號</div>
+	    	<div><input type="text"  style="color: black;"name="loginAccount"> </div>
+	    	<div style="color: black; font-weight: bold;" >密碼</div>
+	    	<div><input type="password" style="margin-bottom: 5px;"name="loginPassword"> </div>
 
-         <div><button id="forget" class="myButton" style="float: left;">忘記密碼</button></dir>
-	        <div><button id ="login" class="myButton"style="float: right;" >登入</button> 
-	        	<button  id="cancel" class="myButton" style="float: right; margin-right: 10px;" >取消</button></div>
+         <div>
+			 <button id="forget" class="myButton" style="float: left;">忘記密碼</button>
+		</div>
+		 <div>
+			<button id ="login" class="myButton"style="float: right;" >登入</button> 
+			<button  id="cancel" class="myButton" style="float: right; margin-right: 10px;" >取消</button>
+		</div>
 	      
 	    </form> 
 	  </div> 

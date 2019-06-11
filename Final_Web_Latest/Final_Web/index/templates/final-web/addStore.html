@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<!--
+	Broadcast by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>	
+		<title>新增店家</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{% load static %}
+		<link rel="stylesheet" href={% static "assets/css/main.css" %} />
+		<!-- ckeditor js文件 -->
+		<script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
+		<!-- 富文字編輯器 -->
+		<script th:src="@{/plugins/ckeditor/ckeditor.js}"></script>
+		<script type="text/javascript">
+    		window.onload = function(){
+        	CKEDITOR.replace( 'uIntroduction',{
+			filebrowserImageUploadUrl : '/xxx/uploadimg',//點選上傳檔案
+			uploadUrl : '/xxx/uploadimg',//貼上圖片上傳
+			language : 'zh-cn'
+			});
+    		};
+		</script>
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="{% url 'index:index' %}">韓流<span>來襲</span></a></h1>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'index:index' %}">Home</a></li>
+					<li><a href="{% url 'index:shops' %}">店家列表</a></li>
+					<li><a href="{% url 'index:addstore' %}">新增店家</a></li>
+					<li><a href="{% url 'index:statement' %}">五點聲明</a></li>
+					<li><a href="{% url 'index:fight' %}">韓總大戰議員</a></li>
+					
+				</ul>
+				<ul class="actions vertical">
+					<li><a id="homeLogin_Button" href="#" class="button fit">Login</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+
+			<!-- One -->
+				<section class="wrapper style1">
+					<div class="inner">
+						<header class="align-center">
+							<h2>新增店家</h2>
+							<p>韓總：「高雄就是要水果商啊！」</p>
+						</header>
+						<form  method="post" style="height: 1000px;">
+							{% csrf_token %}
+			                {{ form.as_p }}
+							<div style="text-align: center;">  <p style="font-size: 35px;margin-bottom: 10px;" >店名： <input type="text" style="width: 500px;margin: auto;margin-top: 20px;" name="uStoreName" /></p></div>
+							<div style="text-align: center;">  <p style="font-size: 35px;margin-bottom: 10px;">地址：<input type="text" style="width: 500px;margin: auto;margin-top: 20px;" name="uAddress" /></p></div>
+	                        <div style="text-align: center;">  <p style="font-size: 35px;margin-bottom: 10px;">電話：<input type="text" style="width: 500px;margin: auto;margin-top: 20px; " name="uPhone" /></p></div>
+	                        <div style="text-align: center;">  <p style="font-size: 35px;margin-bottom: 10px;">營業時間：<input type="text" style="width: 500px;margin: auto;margin-top: 20px; " name="uOpen" /></p></div>
+	                        <div style="text-align: center; height: 250px;">  <p style="font-size: 35px;margin-bottom: 10px;">簡介：<textarea name="uIntroduction" type="text" style="width: 500px;height: 150px; margin-top: 20px; "></textarea> </p></div>
+	                        <input  type="submit" value="Submit" style="float: right; margin-top: 230px; " />
+                        </form>
+					</div>
+				</section>
+
+			<!-- Three -->
+				<section class="wrapper ">
+					<div class="inner">
+						<header class="align-center">
+							<h2>你可能會喜歡</h2>
+							<p>Maybe you will like </p>
+						</header>
+
+						<!-- 3 Column Video Section -->
+						
+						
+							<div class="flex flex-3">
+							{% for s in st3 %} 
+								<div class="video col">
+									<div class="image fit">
+										
+										<img src='{{ s.store_image.images.url }}' alt="" />
+										
+									</div>
+									<p class="caption">
+										{{s.store_name}}
+									</p>
+									<a href="{% url 'index:store' s.id %}" class="link"><span>Click Me</span></a>
+								</div>
+							{% endfor %}
+
+								<!-- <div class="video col">
+									<div class="image fit">
+										<img src="images/pic10.jpg" alt="" />
+										
+									</div>
+									<p class="caption">	
+										世界一水果專賣店
+									</p>
+									<a href="{% url 'index:store' 2 %}" class="link"><span>Click Me</span></a>
+								</div>
+								<div class="video col">
+									<div class="image fit">
+										<img src="images/pic11.jpg" alt="" />
+										
+									</div>
+									<p class="caption">
+										景盛水果行
+									</p>
+									<a href="{% url 'index:store' 3 %}" class="link"><span>Click Me</span></a>
+								</div> -->
+
+						</div>
+						
+					</div>
+				</section>
+
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="flex flex-3">
+						<div class="col">
+							<h3>韓總政績</h3>
+							<ul class="alt">
+								<li><a href="{% url 'index:fight' %}">大戰議員</a></li>
+								<li><a href="#">61遊行</a></li>
+								<li><a href="#">參選總統</a></li>
+								
+							</ul>
+						</div>
+						<div class="col">
+							<h3>店家列表</h3>
+							<ul class="alt">
+								<li><a href="#">Restaurant</a></li>
+								<li><a href="#">Shopping</a></li>
+								<li><a href="#">Fruits</a></li>
+								
+							</ul>
+						</div>
+						<div class="col">
+							<h3>關於我們</h3>
+							<ul class="alt">
+								<li><a href="{% url 'index:statement' %}">五點聲明</a></li>
+								<li><a href="#">製作團隊</a></li>
+								<li><a href="#">發展歷史</a></li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="copyright">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/groups/1133954320050424/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/vegetable.han/?hl=zh-tw" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-snapchat"><span class="label">Snapchat</span></a></li>
+					</ul>
+					&copy; Untitled. Design: <a href="https://templated.co">Team8</a>. Images: <a href="https://unsplash.com">Internet</a>. Video: <a href="https://coverr.co">Internet</a>.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+		{% load static %}
+			<script src={% static "assets/js/jquery.min.js" %}></script>
+			<script src={% static "assets/js/jquery.scrolly.min.js" %}></script>
+			<script src={% static "assets/js/skel.min.js" %}></script>
+			<script src={% static "assets/js/util.js" %}></script>
+			<script src={% static "assets/js/main.js" %}></script>
+		{% load static %}
+			<link rel="stylesheet"  href="{% static 'assets/css/font-awesome.main.css' %}">
+			<link rel="stylesheet"  href="{% static 'assets/css/main.css' %}">
+			<link rel="stylesheet"  href="{% static 'assets/css/store.css' %}">
+
+		{% load static %}
+            <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+            <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+
+	</body>
+</html>

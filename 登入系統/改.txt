@@ -1,0 +1,6 @@
+view 的import稍微看看 有少就加上去
+index裡面可以直接換
+
+index.html 註冊和登入的input後都加name
+menu旁邊有加點東西來歡迎使用者
+login 按鈕附近加了些判斷
