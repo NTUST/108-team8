@@ -21,6 +21,7 @@ def index(request):
                 if(user.password==loginPassword):
                     msg=loginAccount+'登入成功'
                     isLogin=True
+                    logOut='Logout'
                     return render_to_response('final-web/index.html',locals())
                 else:
                     msg='密碼錯誤'
