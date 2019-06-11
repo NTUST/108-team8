@@ -98,20 +98,19 @@
 
 						<!-- 3 Column Video Section -->
 							<div class="flex flex-3">
-								{% for s in shoplike %}
+								{% for s in st3 %} 
 								<div class="video col">
-                                    {% if s.store_image %}
 									<div class="image fit">
-                                        <img src="{{ s.store_image.url }}" alt="" />
-										
+                                        {% if s.store_image %}
+										<img src='{{ s.store_image.url }}' alt="" />
+                                        {% endif %}
 									</div>
-                                    {% endif %}
 									<p class="caption">
 										{{s.store_name}}
 									</p>
 									<a href="{% url 'index:store' s.id %}" class="link"><span>Click Me</span></a>
 								</div>
-								{% endfor %} 
+								{% endfor %}
 								<!-- <div class="video col">
 									<div class="image fit">
 										<img src="images/pic10.jpg" alt="" />

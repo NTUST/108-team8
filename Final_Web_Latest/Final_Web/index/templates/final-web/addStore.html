@@ -86,16 +86,16 @@
 							{% for s in st3 %} 
 								<div class="video col">
 									<div class="image fit">
-										
-										<img src='{{ s.store_image.images.url }}' alt="" />
-										
+										{% if s.store_image %}
+										<img src='{{ s.store_image.url }}' alt="" />
+                                        {% endif %}
 									</div>
 									<p class="caption">
 										{{s.store_name}}
 									</p>
 									<a href="{% url 'index:store' s.id %}" class="link"><span>Click Me</span></a>
 								</div>
-							{% endfor %}
+								{% endfor %}
 
 								<!-- <div class="video col">
 									<div class="image fit">

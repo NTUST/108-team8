@@ -74,9 +74,11 @@
 								{% for s in shoplike %} 
 								<div class="video col">
 									<div class="image fit">
-										<img src={{s.store_image}} alt="" />
-										
+										{% if s.store_image %}
+										<img src='{{ s.store_image.url }}' alt="" />
+                                        {% endif %}
 									</div>
+									
 									<p class="caption">
 										{{s.store_name}}
 									</p>

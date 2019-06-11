@@ -72,13 +72,8 @@ class StoreView(generic.DetailView):
        
 def store(request,store_id):
     store=get_object_or_404(Store,pk=store_id)
-    # st1=Store.objects.filter(id='1')
-
     st3=Store.objects.all().order_by('id')[:3]  
-    context={}
-    context['shoplike']=st3
-
-    return render(request,'final-web/store.html',context) 
+    return render(request,'final-web/store.html',locals()) 
      
 
 

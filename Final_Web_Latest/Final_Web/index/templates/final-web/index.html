@@ -280,12 +280,14 @@
 									<!-- Tab 1 -->
 										<div class="tab tab-1 flex flex-3 active">
 											<!-- Video Thumbnail -->
-											{% for s in st6 %}
+											{% for s in st6 %} 
 												<div class="video col">
 													<div class="image fit">
-														<a href="{% url 'index:store' s.id %}" class="link"><img src='{{ s.store_image.images.url }}' alt="" /></a>
+														{% if s.store_image %}
+														<img src='{{ s.store_image.url }}' alt="" />
+                                        				{% endif %}
 													</div>
-													
+													<a href="{% url 'index:store' s.id %}" class="link"><span>Click Me</span></a>
 												</div>
 											{% endfor %}
 											<!-- Video Thumbnail -->
@@ -339,16 +341,18 @@
 													<a href="generic.html" class="link"><span>Click Me</span></a>
 												</div>
 										</div> -->
-
+									</div>
 									<!-- Tab 2 -->
 										<div class="tab tab-2 flex flex-3">
 											<!-- Video Thumbnail -->
-											{% for s in st6 %}
+											{% for s in st6 %} 
 												<div class="video col">
 													<div class="image fit">
-														<a href="{% url 'index:store' s.id %}" class="link"><img src='{{ s.store_image.images.url }}' alt="" /></a>
+														{% if s.store_image %}
+														<img src='{{ s.store_image.url }}' alt="" />
+                                        				{% endif %}
 													</div>
-													
+													<a href="{% url 'index:store' s.id %}" class="link"><span>Click Me</span></a>
 												</div>
 											{% endfor %}
 											<!-- Video Thumbnail -->
@@ -402,16 +406,19 @@
 													<a href="generic.html" class="link"><span>Click Me</span></a>
 												</div>
 										</div> -->
+									</div>
 
 									<!-- Tab 3 -->
 										<div class="tab tab-3 flex flex-3">
 											<!-- Video Thumbnail -->
-											{% for s in st6 %}
+											{% for s in st6 %} 
 												<div class="video col">
 													<div class="image fit">
-														<a href="{% url 'index:store' s.id %}" class="link"><img src='{{ s.store_image.images.url }}' alt="" /></a>
+														{% if s.store_image %}
+														<img src='{{ s.store_image.url }}' alt="" />
+                                        				{% endif %}
 													</div>
-													
+													<a href="{% url 'index:store' s.id %}" class="link"><span>Click Me</span></a>
 												</div>
 											{% endfor %}
 											<!-- Video Thumbnail -->
@@ -484,8 +491,9 @@
 								{% for s in st3 %} 
 								<div class="video col">
 									<div class="image fit">
-										<img src={{s.store_image}} alt="" />
-										
+										{% if s.store_image %}
+										<img src='{{ s.store_image.url }}' alt="" />
+                                        {% endif %}
 									</div>
 									<p class="caption">
 										{{s.store_name}}
