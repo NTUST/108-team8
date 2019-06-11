@@ -13,5 +13,4 @@ urlpatterns=[
     url(r'^fight/$',views.fight,name='fight'),
     url(r'^addStore/$',views.addStore,name='addstore'),
     # url(r'^createstore/$',views.crtStore,name='crtstore')
-
-    ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    ]

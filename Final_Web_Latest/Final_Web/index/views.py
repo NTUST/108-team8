@@ -134,7 +134,7 @@ def addStore(request):
         uPhone=request.POST['uPhone']
         uOpen=request.POST['uOpen']
         uIntroduction=request.POST['uIntroduction']
-        use=Users.objects.filter(name='HankuoYu')
+        use=Users.objects.get(id=1)
         store=Store(store_name=uStoreName,store_introduction=uIntroduction,store_address=uAddress,store_phone=uPhone,store_opening_time=uOpen,account=use)
         store.save()
 

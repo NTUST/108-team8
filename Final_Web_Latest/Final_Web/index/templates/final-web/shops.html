@@ -67,7 +67,9 @@
 							<p>{{s.store_introduction}}</p>
 								<div class="box alt">
 									<div class="row 50% uniform">
-										<div class="4u"><span class="image fit"><a href="{% url 'index:store' s.id %}"><img src="{{ s.store_image.images.url }}" alt="" /></a></span></div>
+                                        {% if s.store_image %}
+										<div class="4u"><span class="image fit"><a href="{% url 'index:store' s.id %}"><img src="{{ s.store_image.url }}" alt="" /></a></span></div>
+                                        {% endif %}
 									</div>
 								</div>
 							</div>
@@ -132,9 +134,9 @@
 							{% for s in shoplike %} 
 								<div class="video col">
 									<div class="image fit">
-										
-										<img src='{{ s.store_image.images.url }}' alt="" />
-										
+                                        {% if s.store_image %}
+										<img src='{{ s.store_image.url }}' alt="" />
+                                        {% endif %}
 									</div>
 									<p class="caption">
 										{{s.store_name}}

@@ -48,12 +48,14 @@
 							<p>讓高雄的水果征服世界</p>
 						</header>
 						<div class="storeimg">
+                            {% if store.store_image %}
 							<div class="video">
 								<div class="img">
 									<img src="{{ store.store_image.url }}" alt="" />
 								</div>
 							<!--	<p class="caption">世界-水果專賣店一隅</p>-->
 							</div>
+                            {% endif %}
 							<div class="information">
 									<div class="infor_text">
 										<ul style="list-style:none;">
@@ -96,12 +98,14 @@
 
 						<!-- 3 Column Video Section -->
 							<div class="flex flex-3">
-								{% for s in shoplike %} 
+								{% for s in shoplike %}
 								<div class="video col">
+                                    {% if s.store_image %}
 									<div class="image fit">
-										<img src="/image/{{s.store_image}}" alt="" />
+                                        <img src="{{ s.store_image.url }}" alt="" />
 										
 									</div>
+                                    {% endif %}
 									<p class="caption">
 										{{s.store_name}}
 									</p>
