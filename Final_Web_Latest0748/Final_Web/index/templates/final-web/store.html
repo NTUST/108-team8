@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<!--
+	Broadcast by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<title>世界-水果專賣店</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{% load static%}
+		<link rel="stylesheet" href={% static "assets/css/store.css" %} />
+		<link rel="stylesheet" href={% static "assets/css/main.css" %} />
+	</head>
+	<body class="subpage">
+
+		<!-- Header -->
+			<header id="header">
+				<h1><a href="{% url 'index:index' %}">韓流<span>來襲</span></a></h1>
+				<a href="#menu">Menu</a>
+			</header>
+
+		<!-- Nav -->
+			<nav id="menu">
+				<ul class="links">
+					<li><a href="{% url 'index:index' %}">Home</a></li>
+					<li><a href="{% url 'index:shops' %}">店家列表</a></li>
+					<li><a href="{% url 'index:addstore' %}">新增店家</a></li>
+					<li><a href="{% url 'index:statement' %}">五點聲明</a></li>
+					<li><a href="{% url 'index:fight' %}">韓總大戰議員</a></li>
+					
+				</ul>
+				<ul class="actions vertical">
+					<li><a id="homeLogin_Button" href="#" class="button fit">Login</a></li>
+				</ul>
+			</nav>
+
+		<!-- Main -->
+			<div id="main">
+			
+			<!-- One -->
+<!--		{% csrf_token %} -->
+				<section class="wrapper style1">
+					<div class="inner">
+						<header class="align-center">
+							<h2>{{ store.store_name }}</h2>
+							<p>讓高雄的水果征服世界</p>
+						</header>
+						<div class="storeimg">
+                            {% if store.store_image %}
+							<div class="video">
+								<div class="img">
+									<img src="{{ store.store_image.url }}" alt="" />
+								</div>
+							<!--	<p class="caption">世界-水果專賣店一隅</p>-->
+							</div>
+                            {% endif %}
+							<div class="information">
+									<div class="infor_text">
+										<ul style="list-style:none;">
+											<li>
+												<h2>地址：</h2>
+												<span>{{ store.store_address }}</span>
+											</li>
+											<li>
+												<h2>電話： </h2>
+												<span>{{ store.store_phone}}</span>
+											</li>
+											<li>
+												<h2>簡介：</h2>
+												<p style="font-size: 20px">
+												{{ store.store_introduction }}
+												<!--	大悲咒（梵語：महा करुणा धारनी，轉寫：Mahā Karuṇā Dhāranī），
+													全名千手千眼觀世音菩薩廣大圓滿無礙大悲心陀羅尼經大悲神咒，又稱大悲心陀羅尼（Mahā Karuṇā-citta Dhāranī）、
+													千手千眼觀音大悲咒（Sahasrabhuja Sahasranetra Avalokiteśvara Mahā Karuṇā Dhāranī）、
+													千手千眼無礙大悲心陀羅尼、無礙大悲陀羅尼、廣大圓滿陀羅尼、滿願陀羅尼、隨心自在陀羅尼、救苦陀羅尼、
+													延壽陀羅尼、滅惡趣陀羅尼、破惡業障陀羅尼、速超十地陀羅尼，有時也稱青頸觀音大悲咒（梵語：नीलकण्ठ धारनी，轉寫：Nīlakaṇṭha Dhāraṇī，
+													義爲「青頸陀羅尼」，但有時也指千句大悲咒），而朝鮮半島則習慣稱之為神妙章句大陀羅尼（韓語：신묘장구대다라니）；
+													是關乎觀世音菩薩的經典《大悲心陀羅尼經》中的主要部分，漢傳共有八十四句，為梵語構成的咒文章句。-->
+												</p>
+											</li>
+										</ul>
+									</div>
+								</div>
+						</div>							
+						
+					</div>
+				</section>
+
+			<!-- Three -->
+				<section class="wrapper ">
+					<div class="inner">
+						<header class="align-center">
+							<h2>你可能會喜歡</h2>
+							<p>Maybe you will like </p>
+						</header>
+
+						<!-- 3 Column Video Section -->
+							<div class="flex flex-3">
+								{% for s in st3 %} 
+								<div class="video col">
+									<div class="image fit">
+                                        {% if s.store_image %}
+										<img src='{{ s.store_image.url }}' alt="" />
+                                        {% endif %}
+									</div>
+									<p class="caption">
+										{{s.store_name}}
+									</p>
+									<a href="{% url 'index:store' s.id %}" class="link"><span>Click Me</span></a>
+								</div>
+								{% endfor %}
+								<!-- <div class="video col">
+									<div class="image fit">
+										<img src="images/pic10.jpg" alt="" />
+										
+									</div>
+									<p class="caption">
+										店家名稱
+									</p>
+									<a href="generic.html" class="link"><span>Click Me</span></a>
+								</div>
+								<div class="video col">
+									<div class="image fit">
+										<img src="images/pic11.jpg" alt="" />
+										
+									</div>
+									<p class="caption">
+										店家名稱
+									</p>
+									<a href="generic.html" class="link"><span>Click Me</span></a>
+								</div> -->
+							</div>
+					</div>
+				</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="flex flex-3">
+						<div class="col">
+							<h3>韓總政績</h3>
+							<ul class="alt">
+								<li><a href="{% url 'index:fight' %}">大戰議員</a></li>
+								<li><a href="#">61遊行</a></li>
+								<li><a href="#">參選總統</a></li>
+								
+							</ul>
+						</div>
+						<div class="col">
+							<h3>店家列表</h3>
+							<ul class="alt">
+								<li><a href="#">Restaurant</a></li>
+								<li><a href="#">Shopping</a></li>
+								<li><a href="#">Fruits</a></li>
+								
+							</ul>
+						</div>
+						<div class="col">
+							<h3>關於我們</h3>
+							<ul class="alt">
+								<li><a href="{% url 'index:statement' %}">五點聲明</a></li>
+								<li><a href="#">製作團隊</a></li>
+								<li><a href="#">發展歷史</a></li>
+								
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="copyright">
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="https://www.facebook.com/groups/1133954320050424/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="https://www.instagram.com/vegetable.han/?hl=zh-tw" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-snapchat"><span class="label">Snapchat</span></a></li>
+					</ul>
+					&copy; Untitled. Design: <a href="https://templated.co">TEMPLATED</a>. Images: <a href="https://unsplash.com">Coverr</a>. Video: <a href="https://coverr.co">Coverr</a>.
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			{% load static %}
+			<script src={% static "assets/js/jquery.min.js" %}></script>
+			<script src={% static "assets/js/jquery.scrolly.min.js" %}></script>
+			<script src={% static "assets/js/skel.min.js" %}></script>
+			<script src={% static "assets/js/util.js" %}></script>
+			<script src={% static "assets/js/main.js" %}></script>
+
+	</body>
+</html>
