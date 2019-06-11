@@ -121,5 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_URL ='/images/'
-MEDIA_ROOT=os.path.join(BASE_DIR, 'images').replace('\\', '/')
+#---------這裡有更新
+MEDIA_URL ='/media/'
+MIDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "mideafiles")
